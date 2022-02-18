@@ -8,7 +8,13 @@
 
 html {
     font-size: 62.5%;
+    /* permite que el padding no afecte el tamaño del elemento */
+    box-sizing: border-box;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}   
+
 body {
     font-size: 16px; /* 1rem = 10px */
     font-family: 'Krub', sans-serif;
@@ -27,15 +33,24 @@ body {
 }
 
 .contenedor {
-    width: 80rem;
+    max-width: 80rem;
     margin: 0 auto;    
 }
 
 .navegacion-principal {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 .navegacion-principal a {
+    display: block;
+    text-align: center;
     color: var(--blanco);
     text-decoration: none;
     font-size: 2rem;
@@ -45,4 +60,12 @@ body {
 .navegacion-principal a:hover {
     background-color: var(--primario);
     color: var(--oscuro);
+}
+
+.hero {
+    background-image: url(../img/imagen_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    padding: 2rem;
 }
